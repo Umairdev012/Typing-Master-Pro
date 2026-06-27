@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Master Pro</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="logo">
+        <i class="fa-solid fa-keyboard"></i>
+        <span>Typing Master Pro</span>
+    </div>
+
+    <div class="header-actions">
+
+        <button id="historyBtn" class="icon-btn">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <span>History</span>
+        </button>
+
+        <button id="tasksBtn" class="icon-btn">
+            <i class="fa-solid fa-list-check"></i>
+            <span>Tasks</span>
+        </button>
+
+        <button id="settingsBtn" class="icon-btn">
+            <i class="fa-solid fa-gear"></i>
+        </button>
+
+        <button id="themeToggle" class="icon-btn">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+    </div>
+
+</header>
+
+<!-- ================= PERSONAL BEST ================= -->
+
+<section class="personal-best" id="personalBestBar">
+
+    <div>
+        🏆
+        <strong id="bestWPM">0</strong>
+        WPM
+    </div>
+
+    <div>
+        🎯
+        <strong id="bestAccuracy">0%</strong>
+    </div>
+
+    <div>
+        📝
+        <strong id="totalTests">0</strong>
+        Tests
+    </div>
+
+    <div>
+        ⏱
+        <strong id="totalPractice">0m</strong>
+    </div>
+
+</section>
+
+<!-- ================= CONTROLS ================= -->
+
+<section class="controls">
+
+    <!-- Mode -->
+
+    <div class="control-row">
+
+        <span class="label">Mode</span>
+
+        <div class="button-group">
+
+            <button class="mode-btn active" data-mode="time">Time</button>
+
+            <button class="mode-btn" data-mode="words">Words</button>
+
+            <button class="mode-btn" data-mode="quote">Quote</button>
+
+            <button class="mode-btn" data-mode="custom">Custom</button>
+
+            <button class="mode-btn" data-mode="zen">Zen</button>
+
+        </div>
+
+    </div>
+
+    <!-- Time -->
+
+    <div class="control-row" id="timeOptions">
+
+        <span class="label">Time</span>
+
+        <div class="button-group">
+
+            <button class="time-btn" data-time="15">15s</button>
+
+            <button class="time-btn" data-time="30">30s</button>
+
+            <button class="time-btn active" data-time="60">60s</button>
+
+            <button class="time-btn" data-time="120">120s</button>
+
+        </div>
+
+    </div>
+
+    <!-- Words -->
+
+    <div class="control-row hidden" id="wordOptions">
+
+        <span class="label">Words</span>
+
+        <div class="button-group">
+
+            <button class="word-btn" data-count="10">10</button>
+
+            <button class="word-btn" data-count="25">25</button>
+
+            <button class="word-btn active" data-count="50">50</button>
+
+            <button class="word-btn" data-count="100">100</button>
+
+        </div>
+
+    </div>
+
+    <!-- Quote -->
+
+    <div class="control-row hidden" id="quoteOptions">
+
+        <span class="label">Length</span>
+
+        <div class="button-group">
+
+            <button class="quote-btn" data-length="short">
+                Short
+            </button>
+
+            <button class="quote-btn active" data-length="medium">
+                Medium
+            </button>
+
+            <button class="quote-btn" data-length="long">
+                Long
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Difficulty -->
+
+    <div class="control-row">
+
+        <span class="label">
+            Difficulty
+        </span>
+
+        <div class="button-group">
+
+            <button class="difficulty-btn" data-difficulty="easy">
+                Easy
+            </button>
+
+            <button class="difficulty-btn active" data-difficulty="medium">
+                Medium
+            </button>
+
+            <button class="difficulty-btn" data-difficulty="hard">
+                Hard
+            </button>
+
+            <button class="difficulty-btn" data-difficulty="code">
+                Code
+            </button>
+
+            <button class="difficulty-btn" data-difficulty="numbers">
+                Numbers
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= CUSTOM TEXT ================= -->
+
+<section id="customTextWrapper" class="custom-wrapper hidden">
+
+    <textarea
+            id="customText"
+            placeholder="Paste your own text here..."
+    ></textarea>
+
+</section>
+
+<!-- ================= LIVE STATS ================= -->
+
+<section class="stats">
+
+    <div class="stat-card">
+
+        <span>WPM</span>
+
+        <h2 id="liveWPM">0</h2>
+
+    </div>
+
+    <div class="stat-card">
+
+        <span>Accuracy</span>
+
+        <h2 id="liveAccuracy">100%</h2>
+
+    </div>
+
+    <div class="stat-card">
+
+        <span>Errors</span>
+
+        <h2 id="liveErrors">0</h2>
+
+    </div>
+
+    <div class="stat-card">
+
+        <span>Characters</span>
+
+        <h2 id="liveCharacters">0</h2>
+
+    </div>
+
+    <div class="stat-card">
+
+        <span>Timer</span>
+
+        <h2 id="timerDisplay">
+            1:00
+        </h2>
+
+    </div>
+
+</section>
+
+<!-- ================= PROGRESS ================= -->
+
+<section class="progress-section">
+
+    <div class="progress-bar">
+
+        <div id="progressFill"></div>
+
+    </div>
+
+</section>
+
+<!-- ================= TYPING AREA ================= -->
+
+<main class="typing-wrapper">
+
+    <div id="typingArea">
+
+        <div id="typingText"></div>
+
+    </div>
+
+</main>
+
+<!-- Hidden Input -->
+
+<input
+        id="typingInput"
+        class="typing-input-hidden"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+/>
+
+<!-- ================= ACTIONS ================= -->
+
+<section class="action-buttons">
+
+    <button id="restartBtn">
+
+        <i class="fa-solid fa-rotate"></i>
+
+        Restart
+
+    </button>
+
+    <button id="skipBtn">
+
+        <i class="fa-solid fa-forward"></i>
+
+        Skip Word
+
+    </button>
+
+    <button id="focusBtn">
+
+        <i class="fa-solid fa-expand"></i>
+
+        Focus Mode
+
+    </button>
+
+</section>
+
+<!-- ================= TASKS ================= -->
+
+<section class="task-preview">
+
+    <div class="task-header">
+
+        <h3>Daily Tasks</h3>
+
+        <span id="dailyProgress">
+            0 / 5
+        </span>
+
+    </div>
+
+    <div id="taskContainer">
+
+    </div>
+
+</section>
+
+<!-- ================= BADGES ================= -->
+
+<section class="badge-preview">
+
+    <div class="task-header">
+
+        <h3>Achievements</h3>
+
+    </div>
+
+    <div id="badgeContainer"></div>
+
+</section>
+
+<!-- ================= RESULTS ================= -->
+
+<section id="resultsScreen" class="results hidden">
+
+    <div class="results-card">
+
+        <h1>Your Results</h1>
+
+        <div class="result-grid">
+
+            <div>
+
+                <span>Final WPM</span>
+
+                <h2 id="finalWPM">0</h2>
+
+            </div>
+
+            <div>
+
+                <span>Accuracy</span>
+
+                <h2 id="finalAccuracy">0%</h2>
+
+            </div>
+
+            <div>
+
+                <span>CPM</span>
+
+                <h2 id="finalCPM">0</h2>
+
+            </div>
+
+            <div>
+
+                <span>Errors</span>
+
+                <h2 id="finalErrors">0</h2>
+
+            </div>
+
+            <div>
+
+                <span>Consistency</span>
+
+                <h2 id="finalConsistency">0%</h2>
+
+            </div>
+
+            <div>
+
+                <span>Time</span>
+
+                <h2 id="finalTime">0s</h2>
+
+            </div>
+
+        </div>
+
+        <div id="starRating" class="stars"></div>
+
+        <p id="motivationMessage"></p>
+
+        <div class="canvas-grid">
+
+            <canvas id="wpmChart" width="700" height="250"></canvas>
+
+            <canvas id="accuracyChart" width="700" height="250"></canvas>
+
+        </div>
+
+        <h3>Keyboard Heatmap</h3>
+
+        <div id="keyboardHeatmap"></div>
+
+        <h3>Most Missed Keys</h3>
+
+        <ul id="missedKeys"></ul>
+
+        <div class="result-buttons">
+
+            <button id="retryBtn">
+                Retry Same Text
+            </button>
+
+            <button id="newTestBtn">
+                New Test
+            </button>
+
+            <button id="saveResultBtn">
+                Save Result
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= HISTORY PANEL ================= -->
+
+<aside id="historyPanel" class="side-panel">
+
+    <div class="panel-header">
+
+        <h2>History</h2>
+
+        <button class="close-panel">
+            ×
+        </button>
+
+    </div>
+
+    <div id="historyList"></div>
+
+    <div class="panel-footer">
+
+        <button id="exportHistory">
+            Export CSV
+        </button>
+
+        <button id="clearHistory">
+            Clear
+        </button>
+
+    </div>
+
+</aside>
+
+<!-- ================= SETTINGS PANEL ================= -->
+
+<aside id="settingsPanel" class="side-panel">
+
+    <div class="panel-header">
+
+        <h2>Settings</h2>
+
+        <button class="close-panel">
+            ×
+        </button>
+
+    </div>
+
+    <div class="settings-body">
+
+        <label>
+
+            Font Size
+
+            <select id="fontSize">
+
+                <option value="small">Small</option>
+
+                <option value="medium" selected>Medium</option>
+
+                <option value="large">Large</option>
+
+                <option value="xl">XL</option>
+
+            </select>
+
+        </label>
+
+        <label>
+
+            Font Family
+
+            <select id="fontFamily">
+
+                <option value="JetBrains Mono">JetBrains Mono</option>
+
+                <option value="Courier New">Courier New</option>
+
+                <option value="Fira Code">Fira Code</option>
+
+            </select>
+
+        </label>
+
+        <label>
+
+            <input type="checkbox" id="toggleLiveWPM" checked>
+
+            Show Live WPM
+
+        </label>
+
+        <label>
+
+            <input type="checkbox" id="toggleAccuracy" checked>
+
+            Show Accuracy
+
+        </label>
+
+        <label>
+
+            <input type="checkbox" id="toggleTimer" checked>
+
+            Show Timer
+
+        </label>
+
+        <label>
+
+            <input type="checkbox" id="toggleProgress" checked>
+
+            Show Progress
+
+        </label>
+
+        <label>
+
+            <input type="checkbox" id="soundToggle">
+
+            Sound Effects
+
+        </label>
+
+        <label>
+
+            Caret Style
+
+            <select id="caretStyle">
+
+                <option value="line">Line</option>
+
+                <option value="block">Block</option>
+
+                <option value="underline">Underline</option>
+
+            </select>
+
+        </label>
+
+        <label>
+
+            Caret Color
+
+            <input type="color"
+                   id="caretColor"
+                   value="#4F46E5">
+
+        </label>
+
+        <button id="resetSettings">
+
+            Reset Settings
+
+        </button>
+
+    </div>
+
+</aside>
+
+<!-- ================= TASK PANEL ================= -->
+
+<aside id="taskPanel" class="side-panel">
+
+    <div class="panel-header">
+
+        <h2>Daily Tasks</h2>
+
+        <button class="close-panel">
+            ×
+        </button>
+
+    </div>
+
+    <div id="tasksPanelContent"></div>
+
+</aside>
+
+<!-- ================= TOAST ================= -->
+
+<div id="toast"></div>
+
+<!-- ================= FOCUS MODE ================= -->
+
+<div id="focusOverlay"></div>
+
+<!-- ================= JS ================= -->
+
+<script src="js/texts.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/timer.js"></script>
+<script src="js/stats.js"></script>
+<script src="js/history.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

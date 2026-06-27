@@ -1,0 +1,487 @@
+/*=========================================================
+    Typing Master Pro
+    responsive.css
+=========================================================*/
+
+/*==========================
+    1400px
+==========================*/
+
+@media (max-width:1400px){
+
+:root{
+
+    --container:1200px;
+
+}
+
+}
+
+
+/*==========================
+    1200px
+==========================*/
+
+@media (max-width:1200px){
+
+:root{
+
+    --container:1000px;
+
+}
+
+.stats{
+
+    grid-template-columns:repeat(3,1fr);
+
+}
+
+.personal-best{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.result-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+
+/*==========================
+    1024px
+==========================*/
+
+@media (max-width:1024px){
+
+.header{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:18px;
+
+}
+
+.header-actions{
+
+    width:100%;
+
+    justify-content:space-between;
+
+}
+
+.controls{
+
+    padding:22px;
+
+}
+
+.control-row{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+}
+
+.button-group{
+
+    width:100%;
+
+    flex-wrap:wrap;
+
+}
+
+.button-group button{
+
+    flex:1;
+
+}
+
+#typingText{
+
+    font-size:26px;
+
+}
+
+.side-panel{
+
+    width:380px;
+
+}
+
+}
+
+
+/*==========================
+    768px
+==========================*/
+
+@media (max-width:768px){
+
+body{
+
+    padding:18px;
+
+}
+
+.stats{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.personal-best{
+
+    grid-template-columns:1fr;
+
+}
+
+.action-buttons{
+
+    flex-direction:column;
+
+}
+
+.action-buttons button{
+
+    width:100%;
+
+}
+
+.results-card{
+
+    padding:24px;
+
+}
+
+.result-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.canvas-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.side-panel{
+
+    width:100%;
+
+}
+
+#badgeContainer{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.keyboard-row{
+
+    gap:4px;
+
+}
+
+.key{
+
+    width:36px;
+
+    height:36px;
+
+    font-size:11px;
+
+}
+
+}
+
+
+/*==========================
+    600px
+==========================*/
+
+@media (max-width:600px){
+
+.header-actions{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.icon-btn{
+
+    width:100%;
+
+}
+
+.stats{
+
+    grid-template-columns:1fr 1fr;
+
+}
+
+.button-group{
+
+    gap:8px;
+
+}
+
+.button-group button{
+
+    min-width:70px;
+
+}
+
+#typingText{
+
+    font-size:18px;
+
+}
+
+}
+
+
+/*==========================
+    480px
+==========================*/
+
+@media (max-width:480px){
+
+body{
+
+    padding:14px;
+
+}
+
+.header{
+
+    padding:16px;
+
+}
+
+.logo span{
+
+    font-size:18px;
+
+}
+
+.logo i{
+
+    width:46px;
+
+    height:46px;
+
+}
+
+.icon-btn span{
+
+    display:none;
+
+}
+
+.controls{
+
+    padding:16px;
+
+}
+
+.stats{
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+
+}
+
+.stat-card{
+
+    padding:14px;
+
+}
+
+.stat-card h2{
+
+    font-size:24px;
+
+}
+
+.typing-wrapper{
+
+    padding:16px;
+
+}
+
+#typingArea{
+
+    min-height:180px;
+
+}
+
+#typingText{
+
+    font-size:16px;
+
+    line-height:1.8;
+
+}
+
+.result-buttons{
+
+    flex-direction:column;
+
+}
+
+.result-buttons button{
+
+    width:100%;
+
+}
+
+#badgeContainer{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+
+/*==========================
+    360px
+==========================*/
+
+@media (max-width:360px){
+
+body{
+
+    padding:10px;
+
+}
+
+.stats{
+
+    grid-template-columns:1fr;
+
+}
+
+.header-actions{
+
+    grid-template-columns:1fr;
+
+}
+
+.button-group{
+
+    flex-direction:column;
+
+}
+
+.button-group button{
+
+    width:100%;
+
+}
+
+#typingText{
+
+    font-size:15px;
+
+}
+
+#keyboardHeatmap{
+
+    display:none;
+
+}
+
+.results-card{
+
+    padding:14px;
+
+}
+
+}
+
+
+/*==========================
+    Landscape Phones
+==========================*/
+
+@media (max-height:500px){
+
+.results{
+
+    align-items:flex-start;
+
+    padding:20px;
+
+}
+
+.results-card{
+
+    margin-bottom:20px;
+
+}
+
+.side-panel{
+
+    overflow-y:auto;
+
+}
+
+}
+
+
+/*==========================
+    Hover Support
+==========================*/
+
+@media (hover:none){
+
+button:hover{
+
+    transform:none !important;
+
+}
+
+.badge-card:hover{
+
+    transform:none;
+
+}
+
+.stat-card:hover{
+
+    transform:none;
+
+}
+
+}
+
+
+/*==========================
+    Reduced Motion
+==========================*/
+
+@media (prefers-reduced-motion:reduce){
+
+*{
+
+    animation:none !important;
+
+    transition:none !important;
+
+    scroll-behavior:auto !important;
+
+}
+
+}
